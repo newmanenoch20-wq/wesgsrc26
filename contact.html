@@ -5,7 +5,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    
+<script>
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+        if (this.href && this.href.includes(window.location.origin)) {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location = this.href;
+            }, 400);
+        }
+    });
+});
+</script>
 <header>
     <h1>SRC Suggestion Box</h1>
     <nav>
